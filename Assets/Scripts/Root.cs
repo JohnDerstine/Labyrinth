@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Root : Tile
 {
-    public Root(int i, int j) : base(i, j)
+    public Root(int i, int j, char originalDirection, Tile[,] tileGrid) : base(i, j, originalDirection, tileGrid)
     {
 
     }
