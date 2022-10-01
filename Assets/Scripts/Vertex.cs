@@ -15,7 +15,7 @@ public class Vertex : Tile
         int decision = Random.Range(0, 101);
         int[] next = coords;
 
-        if (decision < 101)
+        if (decision < 30)
         {
             //go right
             next[0] += 1;

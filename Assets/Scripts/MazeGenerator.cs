@@ -18,6 +18,8 @@ public class MazeGenerator : MonoBehaviour
 
     int[] next;
 
+    Stack<Tile> vStack = new Stack<Tile>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +56,14 @@ public class MazeGenerator : MonoBehaviour
         {
             next = r.Grow();
             tileGrid[next[0], next[1]] = new Vertex(next[0], next[1]);
+            vStack.Push(tileGrid[next[0], next[1]]);
+        }
+
+        while (vStack.Count > 0)
+        {
+            next = vStack.Peek().Grow();
+            tileGrid[next[0], next[1]] = new Vertex(next[0], next[1]);
+            vStack.Pop();
         }
 
         //Makes sure all tiles have the correct neighor references
